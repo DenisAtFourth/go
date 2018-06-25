@@ -1,6 +1,0 @@
-version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
-options: "d735aa2587a4d026193938569252ec64"
-build_time: [1529947415, 183777000]
-inputs:
-  "/Users/dsantos/Desktop/Pika/Pika/ViewController.swift": [1529947414, 0]
-  "/Users/dsantos/Desktop/Pika/Pika/AppDelegate.swift": [1529920801, 0]
