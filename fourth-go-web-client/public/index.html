@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Fourth GO</title>
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/5.1.0/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/5.1.0/firebase-auth.js"></script>
+  <script defer src="/__/firebase/5.1.0/firebase-database.js"></script>
+  <script defer src="/__/firebase/5.1.0/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/5.1.0/firebase-storage.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+  <style media="screen">
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+      outline: none;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    html {
+      overflow-y: scroll;
+    }
+
+    body {
+      background: #eee url('https://i.imgur.com/eeQeRmk.png');
+      /* https://subtlepatterns.com/weave/ */
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 62.5%;
+      line-height: 1;
+      color: #585858;
+      padding: 22px 10px;
+      padding-bottom: 55px;
+    }
+
+    ::selection {
+      background: #5f74a0;
+      color: #fff;
+    }
+
+    ::-moz-selection {
+      background: #5f74a0;
+      color: #fff;
+    }
+
+    ::-webkit-selection {
+      background: #5f74a0;
+      color: #fff;
+    }
+
+    br {
+      display: block;
+      line-height: 1.6em;
+    }
+
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      display: block;
+    }
+
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    input,
+    textarea {
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    blockquote,
+    q {
+      quotes: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: '';
+      content: none;
+    }
+
+    strong,
+    b {
+      font-weight: bold;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    img {
+      border: 0;
+      max-width: 100%;
+    }
+
+    h1 {
+      font-family: 'Amarante', Tahoma, sans-serif;
+      font-weight: bold;
+      font-size: 3.6em;
+      line-height: 1.7em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+
+    /** page structure **/
+
+    #wrapper {
+      display: block;
+      position: relative;
+      width: 850px;
+      background: #fff;
+      margin: 0 auto;
+      padding: 10px 17px;
+      -webkit-box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.35);
+    }
+
+    #employee-table {
+      margin: 80px auto;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+
+    #employee-table thead {
+      cursor: pointer;
+      background: #c9dff0;
+    }
+
+    #employee-table thead tr th {
+      font-weight: bold;
+      padding: 12px 100px;
+    }
+
+    #employee-table thead tr th span {
+      background-repeat: no-repeat;
+      background-position: 100% 100%;
+    }
+
+    #employee-table thead tr th.headerSortUp,
+    #employee-table thead tr th.headerSortDown {
+      background: #acc8dd;
+    }
+
+    #employee-table thead tr th.headerSortUp span {
+      background-image: url('https://i.imgur.com/SP99ZPJ.png');
+    }
+
+    #employee-table thead tr th.headerSortDown span {
+      background-image: url('https://i.imgur.com/RkA9MBo.png');
+    }
+
+
+    #employee-table tbody tr {
+      color: #555;
+    }
+
+    #employee-table tbody tr td {
+      text-align: center;
+      padding: 15px 10px;
+    }
+
+    #employee-table tbody tr td.lalign {
+      text-align: left;
+    }
+
+    .button-container {
+      width: 50%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .button {
+      background-color: #008CBA;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+    .left {
+      float: left;
+    }
+
+    .right {
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>Jack's clock ins and clock outs</h1>
+
+    <div class="button-container">
+      <button class="button left" onclick="sendAction('login')">Manual clock in</button>
+      <button class="button right" onclick="sendAction('logout')">Manual clock out</button>
+    </div>
+
+    <table id="employee-table" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th>
+            <span>Clock in</span>
+          </th>
+          <th>
+            <span>Clock out</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+
+    function sendAction(type) {
+      let timeStamp = Math.round((new Date()).getTime() / 1000);
+
+      console.log('called by ' + type);
+
+      $.ajax({
+        url: 'https://us-central1-fourth-go.cloudfunctions.net/' + type,
+        data: {
+          date: timeStamp
+        },
+        type: 'POST',
+        success: function () {
+          window.location.reload();
+        },
+        error: function (error) {
+          alert(error);
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        let app = firebase.app();
+        let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+        firebase.database().ref('/sessions')
+          .once('value', (snapshot) => {
+            let sessions = snapshot.val();
+
+            for (let value in sessions) {
+              let loginTime;
+              let logoutTime;
+
+              loginTime = (sessions[value].login.date || undefined)
+                ? parseDate(sessions[value].login.date)
+                : 'Not clocked in (???)';
+
+              logoutTime = (sessions[value].logout.date || undefined)
+                ? parseDate(sessions[value].logout.date)
+                : 'Not clocked out';
+
+              $('#employee-table tbody').append('<tr><td>' + loginTime + '</td><td>' + logoutTime + '</td></tr>');
+            }
+          });
+
+        function parseDate(data) {
+          let date = new Date(parseInt(data) * 1000);
+          return (('0' + date.getDate()).slice(-2) + '/' + ('0' + date.getMonth()).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2));
+        }
+
+      } catch (e) {
+        console.error(e);
+        document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+      }
+    });
+  </script>
+</body>
+
+</html>
