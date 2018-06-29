@@ -304,26 +304,36 @@
     .right {
       float: right;
     }
+
+    .pikachu {
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      width: 300px;
+      height: 300px;
+    }
+
   </style>
 </head>
 
 <body>
+  <img class="pikachu" src="pikachu.png">
   <div id="wrapper">
-    <h1>Jack's clock ins and clock outs</h1>
+    <h1>Fourth pokes</h1>
 
     <div class="button-container">
-      <button class="button left" onclick="sendAction('login')">Manual clock in</button>
-      <button class="button right" onclick="sendAction('logout')">Manual clock out</button>
+      <button class="button left" onclick="sendAction('login')">Manual Poke-in</button>
+      <button class="button right" onclick="sendAction('logout')">Manual Poke-out</button>
     </div>
 
     <table id="employee-table" cellspacing="0" cellpadding="0">
       <thead>
         <tr>
           <th>
-            <span>Clock in</span>
+            <span>Poke-in</span>
           </th>
           <th>
-            <span>Clock out</span>
+            <span>Poke-out</span>
           </th>
         </tr>
       </thead>
