@@ -1,16 +1,24 @@
 PODS:
   - Alamofire (4.7.0)
+  - Signals (5.0.0)
+  - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Signals
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Signals
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Signals: 6c41253cc172e4251d6064341bbc555a589c8d9f
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 776cc6e0befbb0791062a3e8b37898a1ad9344b5
+PODFILE CHECKSUM: 45e717b0299deb20788aacfcbf8d9b86f7e173a3
 
 COCOAPODS: 1.5.3

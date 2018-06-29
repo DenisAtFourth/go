@@ -14,6 +14,9 @@
 		6E2AE10220E0F4A1000DC99A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E2AE10020E0F4A1000DC99A /* LaunchScreen.storyboard */; };
 		6E2AE10B20E12172000DC99A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2AE10A20E12172000DC99A /* MapKit.framework */; };
 		6E2AE10D20E12179000DC99A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2AE10C20E12179000DC99A /* CoreLocation.framework */; };
+		6EDB466220E53437009773D0 /* LoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB466120E53436009773D0 /* LoaderService.swift */; };
+		6EDB466420E538CF009773D0 /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB466320E538CF009773D0 /* DownloadTask.swift */; };
+		6EDB466620E53AD5009773D0 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6EDB466520E53AD5009773D0 /* Podfile */; };
 		7476EBDD47AE1AECBB08F815 /* Pods_Pika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181E1EE3D7C32AE7C0EFD1F9 /* Pods_Pika.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		6E2AE10320E0F4A1000DC99A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E2AE10A20E12172000DC99A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6E2AE10C20E12179000DC99A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6EDB466120E53436009773D0 /* LoaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderService.swift; sourceTree = "<group>"; };
+		6EDB466320E538CF009773D0 /* DownloadTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadTask.swift; sourceTree = "<group>"; };
+		6EDB466520E53AD5009773D0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C9ED6F1B31267014C5C05BE5 /* Pods-Pika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pika.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pika/Pods-Pika.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,9 +75,12 @@
 			children = (
 				6E2AE0F720E0F4A1000DC99A /* AppDelegate.swift */,
 				6E2AE0F920E0F4A1000DC99A /* ViewController.swift */,
+				6EDB466120E53436009773D0 /* LoaderService.swift */,
+				6EDB466320E538CF009773D0 /* DownloadTask.swift */,
 				6E2AE0FB20E0F4A1000DC99A /* Main.storyboard */,
 				6E2AE0FE20E0F4A1000DC99A /* Assets.xcassets */,
 				6E2AE10020E0F4A1000DC99A /* LaunchScreen.storyboard */,
+				6EDB466520E53AD5009773D0 /* Podfile */,
 				6E2AE10320E0F4A1000DC99A /* Info.plist */,
 			);
 			path = Pika;
@@ -167,6 +176,7 @@
 			files = (
 				6E2AE10220E0F4A1000DC99A /* LaunchScreen.storyboard in Resources */,
 				6E2AE0FF20E0F4A1000DC99A /* Assets.xcassets in Resources */,
+				6EDB466620E53AD5009773D0 /* Podfile in Resources */,
 				6E2AE0FD20E0F4A1000DC99A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,10 +192,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pika/Pods-Pika-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Signals/Signals.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Signals.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -217,8 +231,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EDB466420E538CF009773D0 /* DownloadTask.swift in Sources */,
 				6E2AE0FA20E0F4A1000DC99A /* ViewController.swift in Sources */,
 				6E2AE0F820E0F4A1000DC99A /* AppDelegate.swift in Sources */,
+				6EDB466220E53437009773D0 /* LoaderService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

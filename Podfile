@@ -7,5 +7,7 @@ target 'Pika' do
 
   # Pods for Pika
   pod 'Alamofire'
+  pod 'Signals'
+  pod 'SwiftyJSON'
 
 end
